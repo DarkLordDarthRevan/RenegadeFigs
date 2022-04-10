@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Renegade</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <script src="https:/js.stripe.com/v3"></script>
+    <%= javascript_pack_tag "application" %>
+  </head>
+
+  <body>
+    <header>
+      <h1>Renegade Figs</h1>
+
+      <nav>
+        <%= link_to image_tag("Page tag (2).png", width:60), root_path %>
+        <ul>
+          <li>
+            Cart
+            <% if cart.present? %>
+              <sup>
+                <% cart.size %>
+              </sup>
+            <ul>
+              <% cart.each do |renegade| %>
+                <li>
+                  <%= renegade.productName %>
+                  <%= button_to cart_path(renegade), method: :delete do%>
+                    -
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <% if flash[:notice]%>
+        <p><%= flash[:notice] %></p>
+      <% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>

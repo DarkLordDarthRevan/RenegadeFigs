@@ -1,0 +1,26 @@
+<h2>Become a Renegade Today</h2>
+<%= link_to "Sign Up", new_user_registration_path %>
+<%= link_to "Sign In", new_user_session_path %>
+<%= link_to "Edit Profile", edit_user_registration_path %>
+<ul>
+  <li>
+    <a href="/renegadefigs/<%= renegade.id %>">
+      <h4><%= renegade.productName %></h4><br>
+      <% if renegade.image.present? %>
+        <%= image_tag renegade.image, height: 300, width: 300%><br>
+      <% end %>
+    </a>
+    <% if cart.include?(renegade) %>
+      <%= button_to cart_path(renegade), method: :delete do%>
+      Remove From Cart
+    <% end %>
+    <% else %>
+      <%= form_with url: checkout_create_path, remote: true do%>
+        <%= form_with url:cart_index_path, remote: true do %>
+          <%= hidden_field_tag(:id, renegade.id)%>
+          <%= button_tag 'Add to Cart' %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </li>
+<% end %>
