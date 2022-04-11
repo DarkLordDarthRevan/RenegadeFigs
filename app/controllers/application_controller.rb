@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   before_action :initialize_session
   helper_method :cart
   protect_from_forgery with: :null_session
@@ -12,7 +13,6 @@ class ApplicationController < ActionController::Base
       Renegadefig.find(session[:shopping_cart])
 
     end
-
 
 
 end

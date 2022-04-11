@@ -1,3 +1,6 @@
+<%= render "renegadefigs/display"%>
+
+
 <%= form_with(url: search_path, method: :get, local: true) do %>
   <%= text_field_tag(:keywords, nil, class: "input", placeholder: 'Minifigure') %>
   <%= submit_tag("Search", class: "button is-primary") %>
