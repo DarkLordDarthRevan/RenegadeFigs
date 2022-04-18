@@ -15,9 +15,11 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "/renegades", to: "renegadefigs#index"
   get "/new", to: "renegadefigs#new"
+  get "renegadefigs/:id", to: "renegadefigs#show"
   get "/search", to: "renegadefigs#search"
   get "/checkout", to: "renegadefigs#checkout"
   get "/category", to: "renegadefigs#category"
+  get "/incategory/:id", to: "renegadefigs#incategory"
 
   resources :renegadefigs
   resources :cart, only: [:create, :destroy]
