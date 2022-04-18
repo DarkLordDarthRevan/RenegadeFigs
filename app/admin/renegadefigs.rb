@@ -5,15 +5,19 @@ ActiveAdmin.register Renegadefig do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :productName, :price, :stock, :productImage, :dateAdded, :description, :catergory, :image
+  permit_params :productName, :price, :stock, :productImage, :dateAdded, :description, :image, :category
+
 
   form do |f|
     f.semantic_errors
     f.inputs
     f.inputs do
-      f.input :image, as: :file, hint: f.object.image.present?  ? image_tag(f.object.image, size:"200x200") : ""
+      f.input :category, as: :select, collection: Category.all.pluck(:name)
     end
+    f.inputs do
+      f.input :image, as: :file, hint: f.object.image.present?  ? image_tag(f.object.image, size:"200x200") : ""
 
+    end
     f.actions
   end
 

@@ -42,12 +42,19 @@ class RenegadefigsController < ApplicationController
 
     redirect_to root_path, status: :see_other
   end
+  def category
+    @category = Category.all
+  end
+  def incategory
+    @renegadefigs = Renegadefig.where("category LIKE ?", )
+  end
   def search
     wildcard_search = "%#{params[:keywords]}%"
-    @renegadefigs = Renegadefig.where("productName LIKE ?", wildcard_search)
+    cat_search = "%#{params[:cat]}%"
+    @renegadefigs = Renegadefig.where("productName LIKE ?", wildcard_search).where("category Like ?", cat_search)
   end
   private
     def product_params
-      params.require(:renegadefig).permit(:productName, :description, :price, :stock, :catergory)
+      params.require(:renegadefig).permit(:productName, :description, :price, :stock)
     end
 end

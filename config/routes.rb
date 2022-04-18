@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get "/renegades", to: "renegadefigs#index"
   get "/new", to: "renegadefigs#new"
   get "/search", to: "renegadefigs#search"
+  get "/checkout", to: "renegadefigs#checkout"
+  get "/category", to: "renegadefigs#category"
+
   resources :renegadefigs
   resources :cart, only: [:create, :destroy]
 

@@ -7,3 +7,17 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+require "csv"
+
+filename = Rails.root.join("db/Products.csv")
+csv_data = File.read(filename)
+products = CSV.parse(csv_data, headers: true, encoding: "utf-8")
+
+products.each do |p|
+  product = Product.create(productName: p['productName'],
+                           price: p['price'],
+                           description: p['description'],
+                           stock: p['stock'],
+                           category: p['category'])
+end

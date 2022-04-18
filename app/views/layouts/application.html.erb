@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
     <script src="https:/js.stripe.com/v3"></script>
     <%= javascript_pack_tag "application" %>
   </head>
@@ -30,7 +31,7 @@
                 <li>
                   <%= renegade.productName %>
                   <%= button_to cart_path(renegade), method: :delete do%>
-                    -
+                  -
                   <% end %>
                 </li>
               <% end %>
