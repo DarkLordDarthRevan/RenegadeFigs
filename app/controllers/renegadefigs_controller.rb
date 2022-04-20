@@ -47,7 +47,8 @@ class RenegadefigsController < ApplicationController
     @category = Category.all
   end
   def incategory
-    @renegadefigs = Renegadefig.where("category LIKE", Category.name)
+    @category = Category.find(params[:id])
+    @renegadefigs = Renegadefig.where("category = ?", @category.name)
   end
   def search
     wildcard_search = "%#{params[:keywords]}%"

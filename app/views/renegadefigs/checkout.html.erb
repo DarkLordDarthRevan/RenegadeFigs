@@ -1,0 +1,17 @@
+<ul>
+    Cart
+      <% if cart.present? %>
+        <sup>
+          <% cart.size %>
+        </sup>
+        <ul>
+          <% cart.each do |renegade| %>
+            <li>
+              <%= renegade.productName %>
+              <%= renegade.price%>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+
+</ul>
