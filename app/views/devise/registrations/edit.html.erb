@@ -16,6 +16,10 @@
     <%= f.label :address %><br />
     <%= f.email_field :address, autofocus: true, autocomplete: "Address" %>
   </div>
+  <div class="field">
+    <%= f.label :province%><br />
+    <%= f.select :province, collection: Province.all.pluck(:name)%>
+  </div>
 
 
   <div class="field">
