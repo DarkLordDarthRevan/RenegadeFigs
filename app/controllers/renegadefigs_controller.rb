@@ -50,8 +50,17 @@ class RenegadefigsController < ApplicationController
     @category = Category.find(params[:id])
     @renegadefigs = Renegadefig.where("category = ?", @category.name)
   end
+  def checkout
+    @total = 0
 
+    cart.each do |renegade|
+
+      @total = @total + renegade.price
+    end
+
+  end
   def search
+    @category = Category.all.pluck(:name)
     wildcard_search = "%#{params[:keywords]}%"
     cat_search = "%#{params[:cat]}%"
     @renegadefigs = Renegadefig.where("productName LIKE ? and category LIKE ?", wildcard_search, cat_search)

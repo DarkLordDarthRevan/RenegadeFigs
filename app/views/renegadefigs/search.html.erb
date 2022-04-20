@@ -3,8 +3,9 @@
 
 <%= form_with(url: search_path, method: :get, local: true) do %>
   <%= text_field_tag(:keywords, nil, class: "input", placeholder: 'Minifigure') %>
-  <%= text_field_tag(:cat, nil, class: "input", placeholder: 'category')%>
+  <%= select_tag :cat,options_for_select(@category)%>
   <%= submit_tag("Search", class: "button is-primary") %>
+
 <% end %>
 <ul>
   <% @renegadefigs.each do | r| %>
