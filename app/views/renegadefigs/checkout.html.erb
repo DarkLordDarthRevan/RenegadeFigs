@@ -7,11 +7,11 @@
       <li>
         <%= renegade.productName %>
         <%= renegade.price%>
-
+        <% @total = self.total + renegade.price %>
 
       </li>
     <% end %>
   </ul>
-
+  <h1><%= @total%></h1>
 <% end %>
 
