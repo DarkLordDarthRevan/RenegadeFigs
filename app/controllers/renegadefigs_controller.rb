@@ -54,10 +54,10 @@ class RenegadefigsController < ApplicationController
   def search
     wildcard_search = "%#{params[:keywords]}%"
     cat_search = "%#{params[:cat]}%"
-    @renegadefigs = Renegadefig.where("productName LIKE ?", wildcard_search).where("category Like ?", cat_search)
+    @renegadefigs = Renegadefig.where("productName LIKE ?", wildcard_search)
   end
   private
     def product_params
       params.require(:renegadefig).permit(:productName, :description, :price, :stock)
     end
-end
+en
