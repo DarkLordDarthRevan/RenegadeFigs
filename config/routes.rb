@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   get "/checkout", to: "renegadefigs#checkout"
   get "/category", to: "renegadefigs#category"
   get "/incategory/:id", to: "renegadefigs#incategory"
-
+  get "/about", to: "about#about"
+  get "/about/:id", to: "about#show"
   resources :renegadefigs
   resources :cart, only: [:create, :destroy]
 

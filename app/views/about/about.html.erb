@@ -1,0 +1,11 @@
+<h1>About Us</h1>
+<ul>
+  <%@about.each do |a| %>
+  <li>
+    <a href="/about/<%= a.id %>">
+      <h4><%= a.title %></h4><br>
+    </a>
+    <p><%=a.body%>
+  </li>
+  <%end%>
+</ul>
