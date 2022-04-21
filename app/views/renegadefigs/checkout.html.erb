@@ -6,12 +6,11 @@
     <% cart.each do |renegade| %>
       <li>
         <%= renegade.productName %>
-        <%= renegade.price%>
+        $<%= renegade.price%>0
 
       </li>
     <% end %>
   </ul>
-
-  <h1>total:<%= @total%></h1>
+  <h1>Total: $<%= @total%>0</h1>
 <% end %>
 
