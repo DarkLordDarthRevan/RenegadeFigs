@@ -31,6 +31,7 @@
               <% cart.each do |renegade| %>
                 <li>
                   <%= renegade.productName %>
+
                   <%= button_to cart_path(renegade), method: :delete do%>
                   -
                   <%= %>
