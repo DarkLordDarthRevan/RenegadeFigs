@@ -8,7 +8,7 @@
     <%@renegadefigs.each do |renegade| %>
       <li>
         <a href="/renegadefigs/<%= renegade.id %>">
-          <h4><%= renegade.productName %></h4><br>
+          <h4 class="title has-text-danger-dark is-size-4"><%= renegade.productName %></h4><br>
           <% if renegade.image.present? %>
             <%= image_tag renegade.image, height: 300, width: 300%><br>
           <% end %>
