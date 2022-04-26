@@ -1,5 +1,5 @@
 <%= render "renegadefigs/display"%>
-<h1><%= @renegadefigs.productName%></h1><br>
+<h1 class="title has-text-danger-dark has-text-centered is-size-1"><%= @renegadefigs.productName%></h1><br>
 <% if @renegadefigs.image.present? %>
   <%= image_tag @renegadefigs.image, height: 300, width: 300%><br>
 <% end %>
