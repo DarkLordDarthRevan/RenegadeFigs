@@ -3,5 +3,50 @@
     <% cart.size %>
   </sup>
 
+
+
+
+<%= form_with model: @orders do |form|%>
+  <div>
+    <%=form.label :email %>
+    <%=form.text_field :email%>
+  </div>
+  <div>
+    <%=form.label :address %>
+    <%=form.text_field :address%>
+  </div>
+  <div class="field">
+    <label for="order_province">Province</label>
+    <select name="province" id="order_province">
+      <option value="bc">BC</option>
+      <option value="nu">NU</option>
+      <option value="nt">NT</option>
+      <option value="yt">YT</option>
+      <option value="ab">AB</option>
+      <option value="sk">SK</option>
+      <option value="on">ON</option>
+      <option value="qc">QC</option>
+      <option value="nb">NB</option>
+      <option value="ns">NS</option>
+      <option value="pe">PE</option>
+      <option value="nl">NL</option>
+      <option value="mb">MB</option>
+    </select>
+  </div>
+  <div>
+    <label for="order_products">Products</label>
+    <input name="products" id="order_products" value="
+        <% cart.each do |renegade| %>
+            <%= renegade.productName %>
+            $<%= renegade.price%>0
+        <% end %>">
+  </div>
+  <div>
+    <label for="order_total">Total:</label>
+    <input name="total" id="order_total" value="$<%= @total%>0">
+  <div>
+    <%= form.submit %>
+  </div>
+  <% end %>
 <% end %>
 

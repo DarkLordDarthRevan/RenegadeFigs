@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
 
-  belongs_to :renegadefigs
+  belongs_to :renegadefig
 end
