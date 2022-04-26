@@ -50,12 +50,20 @@ class RenegadefigsController < ApplicationController
     @category = Category.find(params[:id])
     @renegadefigs = Renegadefig.where("category = ?", @category.name)
   end
+  def new_order
+    @order = Order.new
+  end
   def checkout
     @total = 0
 
     cart.each do |renegade|
 
       @total = @total + renegade.price
+    end
+
+    @order = Order.new(order_params)
+    if @order.save
+      redirect_to checkout_success
     end
 
   end
@@ -69,4 +77,9 @@ class RenegadefigsController < ApplicationController
     def product_params
       params.require(:renegadefig).permit(:productName, :description, :price, :stock)
     end
-  end
+  private
+    def order_params
+      params.require(:order).permit(:email, :products, :total, :address, :province)
+    end
+end
+
