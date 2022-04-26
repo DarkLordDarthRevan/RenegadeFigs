@@ -20,7 +20,7 @@
 
       <nav>
         <%= link_to image_tag("Page tag (2).png", width:60), checkout_path %>
-        <ul>
+        <ul class="menu-list">
           <li>
             Cart
             <% if cart.present? %>
@@ -40,6 +40,12 @@
               <% end %>
             </ul>
           <% end %>
+
+          <li><a href="/renegades">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/search/">Search</a></li>
+          <li><a href="/category">Categories</a></li>
+
         </ul>
       </nav>
     </header>
