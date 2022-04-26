@@ -1,9 +1,11 @@
-<ul>
-  <%@category.each do |cat|%>
-    <li>
-      <a href="/incategory/<%=cat.id %>">
-        <%=cat.name%>
-      </a>
-    </li>
-  <%end%>
-</ul>
+<div class="hero-body">
+  <ul>
+    <%@category.each do |cat|%>
+      <li>
+        <a href="/incategory/<%=cat.id %>">
+          <%=cat.name%>
+        </a>
+      </li>
+    <%end%>
+  </ul>
+</div>
