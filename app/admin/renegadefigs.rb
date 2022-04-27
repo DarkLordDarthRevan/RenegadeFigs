@@ -15,7 +15,7 @@ ActiveAdmin.register Renegadefig do
       f.input :category, as: :select, collection: Category.all.pluck(:name)
     end
     f.inputs do
-      f.input :image, as: :file, hint: f.object.image.present?  ? image_tag(f.object.image, size:"250x250") : ""
+      f.input :image, as: :file, hint: f.object.image.present?  ? image_tag(f.object.image, size:"230x230") : ""
 
     end
     f.actions
