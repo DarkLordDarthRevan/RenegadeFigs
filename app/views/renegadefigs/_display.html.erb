@@ -1,4 +1,4 @@
-<ul>
+<ul class="menu-list">
   <% if current_user%>
     <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
     <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
