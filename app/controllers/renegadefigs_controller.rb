@@ -12,13 +12,14 @@ class RenegadefigsController < ApplicationController
   end
 
   def new
-    @order = Order.new
+    @renegadefigs = Renegadefig.new
   end
 
   def create
-    @order = Order.new(order_params)
-    if @order.save
-      redirect_to checkout_success_path
+    @renegadefigs = Renegadefig.new(product_params)
+
+    if @renegadefigs.save
+      redirect_to @renegadefigs
     else
       render :new, status: :unprocessable_entity
 
@@ -60,7 +61,10 @@ class RenegadefigsController < ApplicationController
       @total = @total + renegade.price
     end
 
-
+    @order = Order.new(order_params)
+    if @order.save
+      redirect_to checkout_success
+    end
 
   end
   def search
@@ -75,7 +79,7 @@ class RenegadefigsController < ApplicationController
     end
   private
     def order_params
-      params.require(:order).permit(:email, :products, :total, :address, :province)
+      params.require(:orders).permit(:email, :products, :total, :address, :province)
     end
 end
 
