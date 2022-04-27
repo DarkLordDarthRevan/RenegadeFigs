@@ -7,29 +7,33 @@
   <%= submit_tag("Search", class: "button is-primary") %>
 
 <% end %>
-<ul>
-  <% @renegadefigs.each do | r| %>
 
-    <li>
 
-      <a href="/renegadefigs/<%=r.id%>">
-        <h4><%= r.productName %></h4><br>
-        <% if r.image.present? %>
-          <%= image_tag r.image, height: 300, width: 300%><br>
-        <% end %>
-      </a>
-        <% if cart.include?(r) %>
-          <%= button_to cart_path(r), method: :delete do%>
-          Remove From Cart
-        <% end %>
-        <%else%>
-          <%= form_with url: cart_index_path, method: :post do %>
-          <%= hidden_field_tag(:id, r.id)%>
-          <%= button_tag 'Add to Cart' %>
-        <% end %>
-        <%end%>
+  <div class="column is_half is-offset-one-quarter">
+    <ul>
+      <% @renegadefigs.each do | r| %>
 
-    </li>
+        <li>
 
-  <% end %>
-</ul>
+          <a href="/renegadefigs/<%=r.id%>">
+            <h4><%= r.productName %></h4><br>
+            <% if r.image.present? %>
+              <%= image_tag r.image, height: 300, width: 300%><br>
+            <% end %>
+          </a>
+            <% if cart.include?(r) %>
+              <%= button_to cart_path(r), method: :delete do%>
+              Remove From Cart
+            <% end %>
+            <%else%>
+              <%= form_with url: cart_index_path, method: :post do %>
+              <%= hidden_field_tag(:id, r.id)%>
+              <%= button_tag 'Add to Cart' %>
+            <% end %>
+            <%end%>
+
+        </li>
+
+      <% end %>
+    </ul>
+  </div>
