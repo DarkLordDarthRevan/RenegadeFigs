@@ -22,13 +22,13 @@ Rails.application.routes.draw do
   get "/incategory/:id", to: "renegadefigs#incategory"
   get "/about", to: "about#about"
   get "/about/:id", to: "about#show"
-
+  get "/success", to: "checkout#success", as: "checkout_success"
   resources :renegadefigs
   resources :cart, only: [:create, :destroy]
 
   scope "checkout" do
     post "create", to: "checkout#create", as: "checkout_create"
-    get "success", to: "checkout#success", as: "checkout_success"
+
     get "cancel", to: "checkout#cancel", as: "checkout_cancel"
   end
 

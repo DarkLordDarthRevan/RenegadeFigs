@@ -61,9 +61,9 @@ class RenegadefigsController < ApplicationController
       @total = @total + renegade.price
     end
 
-    @order = Order.new()
+    @order = Order.new(order_params)
     if @order.save
-      redirect_to checkout_success
+      redirect_to checkout_success_path
     end
 
   end
